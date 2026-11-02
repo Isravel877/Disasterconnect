@@ -1,0 +1,78 @@
+
+.create-request-page {
+  min-height: 75vh;
+  padding: 40px 20px;
+  background: #f3f6fb;
+}
+
+.create-request-card {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 32px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.create-request-card > a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.create-request-card h1 {
+  margin: 24px 0 8px;
+  color: #1e293b;
+}
+
+.create-request-card p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.create-request-card form {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.create-request-card label {
+  font-weight: 600;
+  color: #334155;
+}
+
+.create-request-card input,
+.create-request-card textarea,
+.create-request-card select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font: inherit;
+}
+
+.create-request-card textarea {
+  resize: vertical;
+}
+
+.create-request-card button {
+  margin-top: 12px;
+  padding: 13px;
+  border: none;
+  border-radius: 7px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.create-request-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 500px) {
+  .create-request-card {
+    padding: 22px;
+  }
+}

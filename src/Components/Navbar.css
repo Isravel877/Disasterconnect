@@ -1,0 +1,260 @@
+
+/* ========================================
+   DisasterConnect - Professional Navbar
+======================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: #0b1f33;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(5, 20, 35, 0.12);
+}
+
+.navbar,
+.navbar * {
+  box-sizing: border-box;
+}
+
+/* Main navbar container */
+
+.navbar-container {
+  width: min(1200px, calc(100% - 48px));
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* Brand and logo */
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+.navbar-brand svg {
+  flex-shrink: 0;
+  color: #93c5fd;
+}
+
+/* Desktop navigation links */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  flex: 1;
+  min-width: 0;
+}
+
+.navbar-links > a {
+  position: relative;
+  color: #d5dfeb;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.navbar-links > a:hover,
+.navbar-links > a:focus-visible {
+  color: #93c5fd;
+}
+
+/* Login and registration actions */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 22px;
+  margin-left: 8px;
+}
+
+.navbar-actions .login-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.navbar-actions .login-link:hover {
+  color: #93c5fd;
+}
+
+.navbar-actions .register-button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  background: #2563eb;
+  color: #ffffff;
+  border: 1px solid #2563eb;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-actions .register-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.navbar-actions .register-button:active {
+  transform: translateY(1px);
+}
+
+/* Mobile menu button - hidden on desktop */
+
+.mobile-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.mobile-menu-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Keyboard accessibility */
+
+.navbar a:focus-visible,
+.mobile-menu-button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 4px;
+}
+
+/* ========================================
+   Tablet and Mobile
+======================================== */
+
+@media (max-width: 768px) {
+  .navbar-container {
+    width: calc(100% - 36px);
+    min-height: 68px;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .navbar-brand {
+    font-size: 19px;
+  }
+
+  .navbar-brand svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex;
+  }
+
+  /* Closed menu by default on mobile */
+
+  .navbar-links {
+    display: none;
+    flex: 0 0 100%;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    min-width: 0;
+    padding: 0 0 18px;
+  }
+
+  /* Open menu when React adds navbar-links-open */
+
+  .navbar-links.navbar-links-open {
+    display: flex;
+  }
+
+  .navbar-links > a {
+    display: block;
+    padding: 14px 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    font-size: 14px;
+  }
+
+  .navbar-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin: 12px 0 0;
+  }
+
+  .navbar-actions .login-link {
+    display: block;
+    padding: 12px 4px;
+    text-align: center;
+  }
+
+  .navbar-actions .register-button {
+    width: 100%;
+    min-height: 46px;
+  }
+}
+
+/* Small mobile screens */
+
+@media (max-width: 380px) {
+  .navbar-container {
+    width: calc(100% - 28px);
+  }
+
+  .navbar-brand {
+    gap: 7px;
+    font-size: 17px;
+  }
+
+  .mobile-menu-button {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-links > a,
+  .navbar-actions .login-link,
+  .navbar-actions .register-button {
+    transition: none;
+  }
+}
