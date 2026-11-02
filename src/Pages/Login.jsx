@@ -68,7 +68,7 @@ function Login() {
 
       // Select the correct dashboard.
       const dashboardRoutes = {
-        ADMIN: "admin-dashboard",
+        ADMIN: "/admin-dashboard",
         REQUESTER: "/requester/dashboard",
         HELPER: "/helper/dashboard",
       };

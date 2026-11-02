@@ -19,7 +19,7 @@ const initialForm = {
   email: "",
   phone: "",
   address: "",
-  roleName: "REQUESTER",
+  roleId: "2",
   password: "",
   confirmPassword: "",
 };
@@ -65,7 +65,7 @@ function Register() {
         email: form.email.trim().toLowerCase(),
         phone: form.phone.trim(),
         address: form.address.trim(),
-        roleName: form.roleName,
+         roleId: Number(form.roleId),
         password: form.password,
       });
 
@@ -176,7 +176,8 @@ function Register() {
                     type="tel"
                     value={form.phone}
                     onChange={handleChange}
-                    placeholder="Phone (optional)"
+                    placeholder="Enter your phone number"
+                    required
                     autoComplete="tel"
                     maxLength={20}
                     disabled={loading}
@@ -188,14 +189,14 @@ function Register() {
                 <label htmlFor="register-role">I want to</label>
                 <select
                   id="register-role"
-                  name="roleName"
-                  value={form.roleName}
+                  name="roleId"
+                  value={form.roleId}
                   onChange={handleChange}
                   required
                   disabled={loading}
                 >
-                  <option value="REQUESTER">Request help</option>
-                  <option value="HELPER">Volunteer as a helper</option>
+                  <option value="2">Request help</option>
+                  <option value="3">Volunteer as a helper</option>
                 </select>
               </div>
             </div>

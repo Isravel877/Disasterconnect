@@ -1,24 +1,23 @@
+
 import axios from "axios";
 
-// Keep the backend URL in one place. You can override it at build time with
-// VITE_API_BASE_URL in a .env file.
-const API_BASE_URL =
+const API_BASE_URL = (
   import.meta.env.VITE_API_BASE_URL ||
-  "http://disasterconnect-env.eba-un8ixjpz.us-east-2.elasticbeanstalk.com";
+  "http://disasterconnect-env.eba-un8ixjpz.us-east-2.elasticbeanstalk.com"
+).trim().replace(/\/+$/, "");
 
 const api = axios.create({
-  baseURL: API_BASE_URL.replace(/\/$/, ""),
+  baseURL: API_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-// Attach the JWT to every protected API request.
+// Attach JWT only to protected API requests.
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
-  if (token) {
-    config.headers = config.headers || {};
+  if (token && !config.url?.startsWith("/api/auth/")) {
     config.headers.Authorization = `Bearer ${token}`;
   }
 
